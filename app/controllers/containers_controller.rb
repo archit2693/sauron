@@ -26,14 +26,11 @@ class ContainersController < ApplicationController
 
   def index
     @containers = Lxd.list_containers
+    @lxd_host_ipaddress = params[:lxd_host_ipaddress]
   end
 
   def show
     @container = Lxd.show_container(params[:container_hostname])
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def new

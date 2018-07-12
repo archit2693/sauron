@@ -14,9 +14,17 @@ class ContainerHostsController < ApplicationController
 
   def index
     @container_hosts = ContainerHost.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @container_hosts }
+    end
   end
 
   def show
     @container_host = ContainerHost.find_by(id: params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @container_host }
+    end
   end
 end

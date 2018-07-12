@@ -16,6 +16,7 @@ gem 'therubyracer'
 gem 'sshkey', '~> 1.9'
 gem 'jbuilder'
 gem 'sidekiq'
+gem 'materialize-sass', '~> 1.0.0.rc1'
 
 group :development, :test do
   gem 'webmock'
