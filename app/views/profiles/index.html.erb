@@ -1,27 +1,35 @@
 <%- model_class = Profile -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize, class:'sub-header' %></h1>
+<%= stylesheet_link_tag 'container_host'%>
+<div class="row page-header">
+  <div class="col s6">
+    <h3 class="heading">Profiles</h3>
+  </div>
+  <div class="col s6">
+    <a  onclick="location.href = '/profiles/new' " class="btn-floating btn-large waves-effect waves-light right-button"><i class="material-icons">add</i></a>
+  </div>
 </div>
-<div class="pull-right">
-  <%= link_to t('.new'), profile_new_path, :class => 'btn btn-primary btn-sm' %>
+
+<div class="container-fluid">
+  <div class= "card">
+    <table class="table highlight responsive-table striped centered">
+      <thead class="thead-dark">
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @profiles.each do |profile| %>
+          <tr>
+            <td><%= profile %></td>
+            <td>
+            <%= link_to t('.show'), profile_path(:name => profile), :class => 'btn btn-primary btn-sm' %>
+            <%= link_to t('.edit'), profile_edit_path(:name => profile), :class => 'btn btn-primary btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div class="table-responsive">
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile %></td>
-        <td>
-        <%= link_to t('.show'), profile_path(:name => profile), :class => 'btn btn-primary btn-sm' %>
-        <%= link_to t('.edit'), profile_edit_path(:name => profile), :class => 'btn btn-primary btn-sm' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+
