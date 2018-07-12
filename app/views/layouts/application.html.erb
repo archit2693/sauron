@@ -10,27 +10,29 @@
   </head>
 
   <body>
-
-  <nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Sauron</a>
-      <a href="/" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><%= link_to t('.profiles'), profiles_path() %></li>
-        <li><%= link_to t('.key-pairs', :default => t("helpers.links.key-pairs")), key_pairs_path() %></li>
-        <li><%= link_to t('.new-container', :default => t("helpers.links.launch-new-container")), containers_new_path() %></li>
-        <li><%= link_to t('.Sign-Out', :default => t("helpers.links.sign-out")),
-                          destroy_user_session_path(), method: :delete %></li>
-      </ul>
-    </div>
-  </nav>
-  <ul id="mobile" class="sidenav">
-    <li><%= link_to t('.profiles'), profiles_path() %></li>
-    <li><%= link_to t('.key-pairs', :default => t("helpers.links.key-pairs")), key_pairs_path() %></li>
-    <li><%= link_to t('.new-container', :default => t("helpers.links.launch-new-container")), containers_new_path() %></li>
-    <li><%= link_to t('.Sign-Out', :default => t("helpers.links.sign-out")),
-                          destroy_user_session_path(), method: :delete %></li>
-  </ul>
+  
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Sauron</a>
+        <a href="/" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><%= link_to t('.profiles'), profiles_path() %></li>
+          <li><%= link_to t('.key-pairs', :default => t("helpers.links.key-pairs")), key_pairs_path() %></li>
+          <li><%= link_to t('.new-container', :default => t("helpers.links.launch-new-container")), containers_new_path() %></li>
+          <li><%= link_to t('.Sign-Out', :default => t("helpers.links.sign-out")),
+                            destroy_user_session_path(), method: :delete %></li>
+        </ul>
+      </div>
+    </nav>
+    <ul id="mobile" class="sidenav">
+      <li><%= link_to t('.profiles'), profiles_path() %></li>
+      <li><%= link_to t('.key-pairs', :default => t("helpers.links.key-pairs")), key_pairs_path() %></li>
+      <li><%= link_to t('.new-container', :default => t("helpers.links.launch-new-container")), containers_new_path() %></li>
+      <li><%= link_to t('.Sign-Out', :default => t("helpers.links.sign-out")),
+                            destroy_user_session_path(), method: :delete %></li>
+    </ul>
+  </div>
   <div class="container-fluid main">
     <%= yield %>
   </div>

@@ -1,24 +1,23 @@
 <%- model_class = KeyPair -%>
+<%= stylesheet_link_tag 'container_host'%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h3 class="heading">Key Pair</h3>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @key_pair.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:fingerprint) %>:</strong></dt>
-  <dd><%= @key_pair.fingerprint %></dd>
-  <%- if flash[:private_key] %>
-    <dt></dt>
-    <dd>
-      <br />
+<div class="container-fluid">
+  <div class= "card show-card">
+    <strong><%= model_class.human_attribute_name(:name) %> : </strong>
+    <strong><%= @key_pair.name %></strong><br><br>
+    <strong><%= model_class.human_attribute_name(:fingerprint) %> : </strong>
+    <strong><%= @key_pair.fingerprint %></strong><br><br>
+    <%- if flash[:private_key] %>
       <%= link_to t('.private_key', :default => t("private_key")),
-    "data:application/octet-stream;charset=utf-16le;base64,#{Base64.encode64(flash[:private_key])}", :download => @key_pair.name, :class => 'btn btn-primary btn-sm' %>
-      <p class="text-danger">Warning: You can only download private key this once.</p>
-    </dd>
-  <%- end %>
+        "data:application/octet-stream;charset=utf-16le;base64,#{Base64.encode64(flash[:private_key])}", :download => @key_pair.name, :class => 'btn waves-effect waves-light' %>
+      <p class="warning">Warning: You can only download private key this once.</p>
+    <%- end %>
 
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-    key_pairs_path(), :class => 'btn btn-primary btn-sm' %>
-</dl>
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+      key_pairs_path(), :class => 'btn waves-effect waves-light' %>
+  </div>
+</div>
 

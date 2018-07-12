@@ -2,40 +2,6 @@
 <%= javascript_include_tag 'container_host' %>
 <div class="container-fluid form-div">
   <div class= "card">
-    <%= form_for @container, :html => {:class => "form-horizontal container"} do |f| %>
-
-      <% if @container.errors.any? %>
-        <div id="error_expl" class="panel panel-danger">
-          <div class="panel-heading">
-            <h3 class="panel-title heading"><%= pluralize(@container.errors.count, "error") %> prohibited this container from being saved:</h3>
-          </div>
-          <div class="panel-body">
-            <ul>
-              <% @container.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      <% end %>
-
-      <div class="form-group">
-        <%= f.label :container_hostname %>
-        <div class="input-field col s6">
-          <%= f.text_field :container_hostname, :class => 'materialize-textarea validate', :placeholder => 'Hostname: Eg: Container1' %>
-          <%= f.error_span(:container_hostname) %>
-        </div>
-
-        <%= f.label :key_pair %>
-        <div class="input-field col s6">
-          <%= f.select :key_pair_name, @key_pairs.collect{ |p| [ p.name, p.name ] }, include_blank: t('specify_key_pair', :default => t("specify_key_pair")), :disabled => [t("specify_key_pair")] %>
-          <%= f.error_span(:key_pair_name) %>
-        </div>
-        <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                      container_hosts_path, :class => 'btn btn-default' %>
-      </div>
-
-    <% end %>
+    <%= render 'form'%>
   </div>
 </div>
