@@ -17,6 +17,8 @@ gem 'sshkey', '~> 1.9'
 gem 'jbuilder'
 gem 'sidekiq'
 gem 'materialize-sass', '~> 1.0.0.rc1'
+gem 'jquery-rails'
+gem 'jquery-easing-rails'
 
 group :development, :test do
   gem 'webmock'

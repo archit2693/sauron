@@ -1,0 +1,6 @@
+@import "materialize/components/color-variables";
+$primary-color: #1565c0 !default;
+$secondary-color: #003c8f !default;
+@import 'materialize';
+@import 'global_partials/navbar';
+@import 'global_partials/global_colours';
