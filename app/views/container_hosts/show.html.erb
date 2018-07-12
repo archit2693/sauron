@@ -1,11 +1,15 @@
+<%= stylesheet_link_tag 'container_host'%>
 <%- model_class = ContainerHost -%>
 <div class="page-header">
   <h3 class="heading">Container Host</h3>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:hostname) %>:</strong></dt>
-  <dd><%= @container_host.hostname %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ipaddress) %>:</strong></dt>
-  <dd><%= @container_host.ipaddress %></dd>
-</dl>
+<div class="container-fluid">
+  <div class= "card show-card">
+		  <strong><%= model_class.human_attribute_name(:hostname) %> : </strong>
+		  <strong><%= @container_host.hostname %></strong><br><br>
+		  <strong><%= model_class.human_attribute_name(:ipaddress) %> : </strong>
+		  <strong><%= @container_host.ipaddress %></strong>
+  </div>
+</div>
+
